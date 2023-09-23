@@ -13,7 +13,14 @@ import { createSlice } from "@reduxjs/toolkit";
 export const topicsSlice = createSlice({
     name: 'topics',
     initialState: {
-        topics: {}
+        topics: {
+            '123456': {
+                id: '123456',
+                name: 'name of topic',
+                icon: 'icon url',
+                quizIds: []
+              }
+        }
     },
     reducers: {
         addTopic: (state, action) => {
@@ -23,12 +30,28 @@ export const topicsSlice = createSlice({
                 icon: action.payload.icon,
                 quizIds: []
             }
+        },
+        // adds a quiz’s id to the quizIds array of the topic with which the newly created quiz is associated. This action will receive the same payload the quizzes slice addQuiz action received in the form { id: '123', name: 'quiz name', topicId: '456', cardIds: ['1', '2', '3', ...]}
+        addQuizId: (state, action) => {
+            // if topic doesen't exist do nothing
+            if (state.topics[action.payload.topicId] === undefined){
+                console.log(state.topics[action.payload.topicId], 'undefined, quidIds not updated');
+                return;
+            }
+            // add quiz id to the associated topics (topicId) quizIds array
+            const quizIdExists = state.topics[action.payload.topicId].quizIds.includes(action.payload.id);
+            // avoid adding duplicate quiz ids
+            if (!quizIdExists) {
+                state.topics[action.payload.topicId].quizIds.push(action.payload.id);
+            } else {
+                console.log('quiz id', action.payload.id, 'already exists');
+            }
         }
 
     }
 }
 );
-
+// topics selector
 export const selectTopics = state => state.topics.topics;
-export const { addTopic } = topicsSlice.actions;
+export const { addTopic, addQuizId } = topicsSlice.actions;
 export default topicsSlice.reducer;
