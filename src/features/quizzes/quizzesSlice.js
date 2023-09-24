@@ -24,12 +24,12 @@ export const quizzesSlice = createSlice(
                     topicId: action.payload.topicId,
                     cardIds: action.payload.cardIds
                 }
-            }
+            },
         }
     }
 );
 
 // all quizzes selector
 export const selectQuizzes = state => state.quizzes.quizzes;
-export const {addQuiz} = quizzesSlice.actions;
+export const { addQuiz } = quizzesSlice.actions;
 export default quizzesSlice.reducer;
