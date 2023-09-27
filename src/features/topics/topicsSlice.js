@@ -1,4 +1,3 @@
-// 5.
 // Your first task is to write code to manage the state associated with topics. In the src/features/topics directory, create a new file containing a slice that:
 
 import { createSlice } from "@reduxjs/toolkit";

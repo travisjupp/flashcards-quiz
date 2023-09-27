@@ -28,27 +28,8 @@ export const cardsSlice = createSlice(
         }
     }
 );
-// returns card with given id
-// call: selectCard(id)(state)
-// export const selectCard = id => state => state.cards.cards[Object.keys(state.cards.cards).find((el)=>el===id)];
+// returns card with a given id
 export const selectCard = id => state => state.cards.cards[id];
 
 export const { addCard } = cardsSlice.actions;
 export default cardsSlice.reducer;
-
-
-/* Note on using selectors with parameters
-unfortunately, selector function accepts only store's state as argument. I would consider to use a currying approach to tackle the issue:
-
-export const getProductNameById = id => store => {
-  return store.dashboard.dashboards.filter(({ Id }) => Id === id)[0]
-    .Name;
-}
-some file
-
-import { useSelector } from "react-redux";
-import { getProductNameById } from "./selectors";
-
-const productId = 25;
-const productName = useSelector(getProductNameById(productId));
-*/
