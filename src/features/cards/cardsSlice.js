@@ -13,7 +13,7 @@ export const cardsSlice = createSlice(
         name: 'cards',
         initialState: {
             cards: {
-                123: {id: '123', front: 'front of card', back: 'back of card'}
+                // 123: {id: '123', front: 'front of card', back: 'back of card'}
             }
         },
         reducers: {
@@ -29,7 +29,10 @@ export const cardsSlice = createSlice(
     }
 );
 // returns card with given id
-export const selectCard = id => state => id === state.cards.id;
+// call: selectCard(id)(state)
+// export const selectCard = id => state => state.cards.cards[Object.keys(state.cards.cards).find((el)=>el===id)];
+export const selectCard = id => state => state.cards.cards[id];
+
 export const { addCard } = cardsSlice.actions;
 export default cardsSlice.reducer;
 

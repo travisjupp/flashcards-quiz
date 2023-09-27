@@ -39,7 +39,7 @@ export const topicsSlice = createSlice({
         .addCase(addQuiz, (state, action) => {
             // if topic doesen't exist do nothing
             if (state.topics[action.payload.topicId] === undefined) {
-                console.log(state.topics[action.payload.topicId], 'undefined, quizIds not updated');
+                console.log(action.payload.topicId, 'no topic selected, no topic quizIds array updated');
                 return;
             }
             // add quiz id to the associated topics (topicId) quizIds array
