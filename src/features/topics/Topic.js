@@ -7,15 +7,15 @@ import { selectQuizzes } from "../quizzes/quizzesSlice";
 import { selectTopics } from "./topicsSlice";
 
 export default function Topic() {
-  const topics = useSelector(selectTopics);  // replace with selector
-  const quizzes = useSelector(selectQuizzes); // replace with selector
+  const topics = useSelector(selectTopics);  // call to your selector to select all the topics in state
+  const quizzes = useSelector(selectQuizzes); // call to your selector to select quizzes
   const { topicId } = useParams();
   const topic = topics[topicId];
 
-  if(!topic) {
-    return <Navigate to={ROUTES.topicsRoute()} replace/>
+  if (!topic) {
+    return <Navigate to={ROUTES.topicsRoute()} replace />
   }
-  
+
   const quizzesForTopic = topic.quizIds.map((quizId) => quizzes[quizId]);
 
   return (

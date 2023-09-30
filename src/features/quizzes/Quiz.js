@@ -8,12 +8,12 @@ import { selectQuizzes } from "./quizzesSlice";
 
 
 export default function Quiz() {
-  const quizzes = useSelector(selectQuizzes); // replace this with a call to your selector to get all the quizzes in state
+  const quizzes = useSelector(selectQuizzes); // call to your selector to get all the quizzes in state
   const { quizId } = useParams();
   const quiz = quizzes[quizId];
 
-  if(!quiz) {
-    return <Navigate to={ROUTES.quizzesRoute()} replace/>
+  if (!quiz) {
+    return <Navigate to={ROUTES.quizzesRoute()} replace />
   }
 
 

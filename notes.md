@@ -1,4 +1,5 @@
-# All together, your app state will look like this:
+# Notes
+## Final app state structure:
 ```js
 {
   topics: {
@@ -42,31 +43,35 @@
   }
 }
 ```
-# Redux selectors with params
-```js
-// call: selectCard(id)(state) or useSelector(selectCard(someIdVal))
-export const selectCard = id => state => state.cards.cards[Object.keys(state.cards.cards).find((el)=>el===id)];
 
+## Redux selectors with params
+
+notes on passing arguments to a selector
+```js
+
+// card with a given id selector (ES6 Arrow function syntax)
 export const selectCard = id => state => state.cards.cards[id];
 
-/* Note on using selectors with parameters
-unfortunately, selector function accepts only store's state as argument. I would consider to use a currying approach to tackle the issue:
-
-export const getProductNameById = id => store => {
-  return store.dashboard.dashboards.filter(({ Id }) => Id === id)[0]
-    .Name;
+// selectCard function declaration syntax (pre ES6)
+export function selectCard(id){
+  return function (state){
+    return state.cards.cards[id]
+    }
 }
-some file
 
-import { useSelector } from "react-redux";
-import { getProductNameById } from "./selectors";
+// calling: useSelector(selectCard(someIdVal)) or selectCard(someIdVal)(state)
 
-const productId = 25;
-const productName = useSelector(getProductNameById(productId));
-*/
 ```
+  see => [cardsSlice.js](src/features/cards/cardsSlice.js)
 
-# using an action in one slice from another
-* import action defined in other slice
-* add to extraReducers section
-see => `topicSlice.js` line 36
+  [more info on currying](https://en.wikipedia.org/wiki/Currying)
+
+## Using another slices reducer to access current slices state
+* import reducer defined in other slice
+* add to `extraReducers` section
+
+_note: this imported reducer will not be exported with the current slices actions (currentSlice.actions) but will perform duties on current slice when dispatched from originating slice._
+
+  see => [topicsSlice.js](src/features/topics/topicsSlice.js) imports and extraReducers section(s)
+
+
