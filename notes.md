@@ -1,5 +1,5 @@
 # Notes
-## Final app state structure:
+## Final app state structure
 ```js
 {
   topics: {
@@ -74,4 +74,6 @@ _note: this imported reducer will not be exported with the current slices action
 
   see => [topicsSlice.js](src/features/topics/topicsSlice.js) imports and extraReducers section(s)
 
+---
+For more info view the [README](./README.md) 
 

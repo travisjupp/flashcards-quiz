@@ -43,9 +43,9 @@ export default function NewQuizForm() {
     // dispatch add quiz action 
     dispatch(addQuiz({
       id: quizId,
-      name: name,
-      topicId: topicId,
-      cardIds: cardIds
+      name,
+      topicId,
+      cardIds
     }));
     navigate(ROUTES.quizzesRoute())
   };
