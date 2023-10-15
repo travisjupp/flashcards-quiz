@@ -1,9 +1,11 @@
-# Codecademy Front-End Engineer path Challenge Project: Flashcards
+# Challenge Project: Flashcards
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/3e2e7697-379d-4738-a740-6f086429bc11/deploy-status)](https://app.netlify.com/sites/react-redux-flashcards/deploys)
 
 ## Description
 This projects goal is to manage a flashcard-style quiz apps complex state with [Redux](https://redux.js.org/) and [Redux Toolkit](https://redux-toolkit.js.org/) using Codecademy's provided starter code. 
 
-Although this app uses [React Router](https://reactrouter.com/en/main) for client-side routing, it is not part of the challenge. However, knowledge of how it works is helpful.
+Although this app uses [React Router](https://reactrouter.com/en/main) for client-side routing, it is not a challenge requirement. However, knowledge of how it works is helpful.
 
 Live site: https://react-redux-flashcards.netlify.app/
 
@@ -12,9 +14,19 @@ Extract __flashcards-starting-code-react-v18.zip__ and from the extracted folder
 
 Start the server with `npm start` and visit http://localhost:3000/ 
 
+## Technologies
+
+* npm v. 8.19.2
+* @reduxjs/toolkit v. 1.9.5
+* react-dom v. 18.2.0
+* react-redux v. 8.1.2
+* react-router-dom v. 6.16.0
+* react-scripts v. 5.0.1
+* react v. 18.2.0
+* uuid v. 8.3.2
 
 ## State
-The state consists of 3 slices created using RTK `createSlice`. Each slice is responsible for updating/accessing its piece of state using the reducers/actions/selectors they generate:
+The application state consists of 3 slices created using RTK `createSlice`. Each slice is responsible for managing its piece of state using the reducers/actions/selectors they generate:
 
 * topicsSlice
   * stores topics keyed by id `'ID': {id: 'ID', name: 'NAME', icon: 'icon url', quizIds: []}`
@@ -72,4 +84,4 @@ The state consists of 3 slices created using RTK `createSlice`. Each slice is re
 
 [Notes](./notes.md)
 
-[Create React App README](Create%20React%20App%20README.md)
+[Create React App README](create-react-app-readme.md)
