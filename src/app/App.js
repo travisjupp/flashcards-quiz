@@ -16,14 +16,14 @@ export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-      <Route path="/" element={<AppLayout/>}>
-    <Route path="topics" element={<Topics/>}/>
-    <Route path="topics/new" element={<NewTopicForm/>}/>
-    <Route path="topics/:topicId" element={<Topic/>}/>
-    <Route path="quizzes" element={<Quizzes/>}/>
-    <Route path="quizzes/new" element={<NewQuizForm/>}/>
-    <Route path="quizzes/:quizId" element={<Quiz/>}/>
-  </Route>
+        <Route path="/" element={<AppLayout />}>
+          <Route path="topics" element={<Topics />} />
+          <Route path="topics/new" element={<NewTopicForm />} />
+          <Route path="topics/:topicId" element={<Topic />} />
+          <Route path="quizzes" element={<Quizzes />} />
+          <Route path="quizzes/new" element={<NewQuizForm />} />
+          <Route path="quizzes/:quizId" element={<Quiz />} />
+        </Route>
       </Routes>
     </BrowserRouter>
   )
