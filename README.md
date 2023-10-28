@@ -16,7 +16,7 @@ Extract __flashcards-starting-code-react-v18.zip__ and from the extracted folder
 
 Start the server with `npm start` and visit http://localhost:3000/ 
 
-## Technologies
+## Technologies used
 
 * `npm` v. 8.19.2
 * `@reduxjs/toolkit` v. 1.9.5
