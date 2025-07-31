@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-// import another slices reducer to interact with this slices state when called
+// import another slices action creator to coordinate state changes across multiple slices
 import { addQuiz } from "../quizzes/quizzesSlice";
 
 export const topicsSlice = createSlice({
@@ -26,7 +26,7 @@ export const topicsSlice = createSlice({
     },
     extraReducers: (builder) => {
         builder
-            .addCase(addQuiz, (state, action) => {
+            .addCase(addQuiz, (state, action) => { // listen for quizzesSlice's addQuiz action when dispatched
                 // if topic doesen't exist early return
                 if (state.topics[action.payload.topicId] === undefined) {
                     console.log(action.payload.topicId, 'no topic selected, no topic quizIds array updated');
